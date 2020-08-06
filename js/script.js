@@ -58,13 +58,21 @@ function getRandomQuote() {
 
 }
 
-console.log(getRandomQuote(quotes));
+//console.log(getRandomQuote(quotes));
 
 /***
  * `printQuote` function
 ***/
 
 function printQuote() {
+  
+  let quote = getRandomQuote(quotes.quote);
+  let source = getRandomQuote(quotes.source);
+
+  let html = `
+    <p class="quote"> ${quote} </p>
+    <p class="source"> ${source} </p>
+  `;
 
 }
   
