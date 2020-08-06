@@ -59,29 +59,26 @@ function getRandomQuote (arr) {
 
 }
 
-//console.log(getRandomQuote(quotes));
-
 /***
  * `printQuote` function
 ***/
 
 function printQuote() {
   
-  getRandomQuote(quotes);
+  let i = getRandomQuote(quotes);
 
-  let quote = ``;
-  
-  // let html = `
-  //   <p class="quote"> ${quote} </p>
-  //   <p class="source"> ${source}
-  //     <span class="citation"> quote citation </span>
-  //     <span class="year"> quote year </span>
-  //   </p>
-  // `;
+  let quote = `${i.quote}`;
+  let source = `${i.source}`;
+
+  let html = `
+    <p class="quote"> ${i.quote} </p>
+    <p class="source"> ${i.source}
+      <span class="citation"> quote citation </span>
+      <span class="year"> quote year </span>
+    </p>
+  `;
 
 }
-  
-
 
 /***
  * click event listener for the print quote button
