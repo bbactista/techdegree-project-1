@@ -102,7 +102,6 @@ function printQuote() {
 
 }
 
-console.log(printQuote());
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
