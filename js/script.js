@@ -13,24 +13,30 @@ project 1 - A Random Quote Generator
 
 const quotes = [
   {
-    quote: 'Start where you are. Use what you have. Do what you can.',
-    source: 'Arthur Ashe',
+    quote: 'Try not to become a man of success, but rather try to become a man of value.',
+    source: 'Albert Einstein',
+    citation: 'Goalcast',
   },
   {
     quote: 'Successful and unsuccessful people do not vary greatly in their abilities. They vary in their desires to reach their potential.',
     source: 'John Maxwell',
   },
   {
-    quote: 'Good things come to people who wait, but better things come to those who go out and get them.',
-    source: 'Anonymous',
+    quote: 'Do, or do not. There is no “try”.',
+    source: 'Master Yoda',
+    citation: 'Star Wars: The Empire Strikes Back',
+    year: '1980',
   },
   {
-    quote: 'I find that the harder I work, the more luck I seem to have.',
-    source: 'Thomas Jefferson',
+    quote: 'Oh yes, the past can hurt. But you can either run from it, or learn from it.',
+    source: 'Rafiki',
+    citation: 'The Lion King',
+    year: '1994',
   },
   {
-    quote: 'Failure is the opportunity to begin again more intelligently.',
+    quote: 'Failure is simply the opportunity to begin again, this time more intelligently.',
     source: 'Henry Ford',
+    citation: 'BrainyQuote',
   },
   {
     quote: 'I’ve failed over and over and over again in my life. And that is why I succeed.',
@@ -54,7 +60,7 @@ const quotes = [
 function getRandomQuote (arr) {
 
   let random = arr[Math.floor(Math.random() * arr.length)];
-  
+
   return random;
 
 }
@@ -65,21 +71,38 @@ function getRandomQuote (arr) {
 
 function printQuote() {
   
-  let i = getRandomQuote(quotes);
+  let randomQuote = getRandomQuote(quotes);
 
-  let quote = `${i.quote}`;
-  let source = `${i.source}`;
+  let quote = `${randomQuote.quote}`;
+  let source = `${randomQuote.source}`;
 
-  let html = `
-    <p class="quote"> ${i.quote} </p>
-    <p class="source"> ${i.source}
-      <span class="citation"> quote citation </span>
-      <span class="year"> quote year </span>
+  if (randomQuote.citation) {
+    let html = `
+    <p class="quote">${quote}</p>
+    <p class="source">${source}
+      <span class="citation">${randomQuote.citation}</span>
     </p>
-  `;
+    `;
+  } else if (randomQuote.year) {
+    let html = `
+    <p class="quote">${quote}</p>
+    <p class="source">${source}
+      <span class="citation">${randomQuote.citation}
+      <span class="year">${randomQuote.year}</span>
+    </p>
+    `;
+  } else {
+    let html = `
+    <p class="quote">${quote}</p>
+    <p class="source">${source}
+    `;
+  }
+
+  document.getElementById('quote-box').innerHTML = html; 
 
 }
 
+console.log(printQuote());
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
