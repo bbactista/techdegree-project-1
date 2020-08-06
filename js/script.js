@@ -51,10 +51,11 @@ const quotes = [
  * `getRandomQuote` function
 ***/
 
-function getRandomQuote() {
+function getRandomQuote (arr) {
 
-  let randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-  return randomQuote;
+  let random = arr[Math.floor(Math.random() * arr.length)];
+  
+  return random;
 
 }
 
@@ -66,13 +67,17 @@ function getRandomQuote() {
 
 function printQuote() {
   
-  let quote = getRandomQuote(quotes.quote);
-  let source = getRandomQuote(quotes.source);
+  getRandomQuote(quotes);
 
-  let html = `
-    <p class="quote"> ${quote} </p>
-    <p class="source"> ${source} </p>
-  `;
+  let quote = ``;
+  
+  // let html = `
+  //   <p class="quote"> ${quote} </p>
+  //   <p class="source"> ${source}
+  //     <span class="citation"> quote citation </span>
+  //     <span class="year"> quote year </span>
+  //   </p>
+  // `;
 
 }
   
