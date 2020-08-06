@@ -52,7 +52,6 @@ const quotes = [
   }
 ];
 
-
 /***
  * `getRandomQuote` function
 ***/
@@ -73,34 +72,35 @@ function printQuote() {
   
   let randomQuote = getRandomQuote(quotes);
 
-  let quote = `${randomQuote.quote}`;
-  let source = `${randomQuote.source}`;
+  let html = '';
 
   if (randomQuote.citation) {
-    let html = `
-    <p class="quote">${quote}</p>
-    <p class="source">${source}
-      <span class="citation">${randomQuote.citation}</span>
-    </p>
+    html += `
+      <p class="quote">${randomQuote.quote}</p>
+      <p class="source">${randomQuote.source}
+        <span class="citation">${randomQuote.citation}</span>
+      </p>
     `;
   } else if (randomQuote.year) {
-    let html = `
-    <p class="quote">${quote}</p>
-    <p class="source">${source}
-      <span class="citation">${randomQuote.citation}
-      <span class="year">${randomQuote.year}</span>
-    </p>
+    html += `
+      <p class="quote">${randomQuote.quote}</p>
+      <p class="source">${randomQuote.source}
+        <span class="citation">${randomQuote.citation}
+        <span class="year">${randomQuote.year}</span>
+      </p>
     `;
   } else {
-    let html = `
-    <p class="quote">${quote}</p>
-    <p class="source">${source}
+    html += `
+      <p class="quote">${randomQuote.quote}</p>
+      <p class="source">${randomQuote.source}
     `;
   }
 
-  document.getElementById('quote-box').innerHTML = html; 
+  return html;
 
 }
+
+console.log(printQuote());
 
 /***
  * click event listener for the print quote button
