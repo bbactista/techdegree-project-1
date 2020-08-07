@@ -54,7 +54,7 @@ const quotes = [
   }
 ];
 
-printQuote(); //Calling `printQuote` function up here so that a random quote will appear when first visiting site or refreshing.
+printQuote(); //Calling `printQuote` function earlier so that a random quote will appear when first visiting site or refreshing.
 
 /***
  * The `getRandomQuote` function will produce a random number, then return that random number as an object from the quotes array.
@@ -82,19 +82,19 @@ function printQuote() {
     <p class="source">${randomQuote.source}
   `; //Displays quote and source by default
   
-  if (randomQuote.year) { //If random object includes the year, then it will display everything.
+  if (randomQuote.year) { //Displays year w/ citation.
     html += `
         <span class="citation">${randomQuote.citation}</span>
         <span class="year">${randomQuote.year}</span>
       </p>
     `;
-  } else if (randomQuote.tags) { //If the random object includes tags, this will display it.
+  } else if (randomQuote.tags) { //Displays tags w/ citation.
     html += `
         <span class="citation">${randomQuote.citation}</span>
         <span class="tags"> Tags: ${randomQuote.tags}</span>
       </p>
     `;
-  } else if (randomQuote.citation) { //If random object just includes the citation w/ no year, then it will display everything minus the year.
+  } else if (randomQuote.citation) { //Displays citation.
     html += `
         <span class="citation">${randomQuote.citation}</span>
       </p>
@@ -111,7 +111,7 @@ function printQuote() {
     document.body.style.background = bgColor;
   }
   random_bg_color();
-  //Random background color function pulled from https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
+  // Source: https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
 }
 
 setInterval(printQuote, 20000); //Shows a new quote every 20 seconds
