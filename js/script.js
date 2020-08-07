@@ -8,7 +8,7 @@ project 1 - A Random Quote Generator
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
 /*** 
- * `quotes` array 
+ * The `quotes` array that stores the quotes used .
 ***/
 
 const quotes = [
@@ -52,19 +52,21 @@ const quotes = [
   }
 ];
 
+printQuote(); //Calling `printQuote` function up here so that a random quote will appear when first visiting site or refreshing.
+
 /***
- * `getRandomQuote` function
+ * The `getRandomQuote` function will produce a random number, then return that random number as an object from the quotes array.
 ***/
 
 function getRandomQuote (arr) {
 
-  let random = arr[Math.floor(Math.random() * arr.length)];
+  let random = arr[Math.floor(Math.random() * arr.length)]; //Random number generator
   return random;
 
 }
 
 /***
- * `printQuote` function
+ * The `printQuote` function will take the randomly generated quote and display it for the user.
 ***/
 
 function printQuote() {
@@ -73,7 +75,7 @@ function printQuote() {
 
   let html = '';
 
-  if (randomQuote.year) {
+  if (randomQuote.year) { //If random object includes the year, then it will display everything.
     html += `
       <p class="quote">${randomQuote.quote}</p>
       <p class="source">${randomQuote.source}
@@ -81,20 +83,20 @@ function printQuote() {
         <span class="year">${randomQuote.year}</span>
       </p>
     `;
-  } else if (randomQuote.citation) {
+  } else if (randomQuote.citation) { //If random object just includes the citation w/ no year, then it will display everything minus the year.
     html += `
       <p class="quote">${randomQuote.quote}</p>
       <p class="source">${randomQuote.source}
         <span class="citation">${randomQuote.citation}</span>
       </p>
     `;
-  } else {
+  } else { //If there's no citation or year available, then it will only display quote and source
     html += `
       <p class="quote">${randomQuote.quote}</p>
       <p class="source">${randomQuote.source}</p>
     `;
   }
-  return document.getElementById('quote-box').innerHTML = html; 
+  return document.getElementById('quote-box').innerHTML = html; //returns the printed html
 }
 
 /***
