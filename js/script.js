@@ -16,41 +16,41 @@ const quotes = [
     quote: 'Try not to become a man of success, but rather try to become a man of value.',
     source: 'Albert Einstein',
     citation: 'Goalcast',
-    tags: 'motivational',
+    tags: 'motivational'
   },
   {
     quote: 'Successful and unsuccessful people do not vary greatly in their abilities. They vary in their desires to reach their potential.',
-    source: 'John Maxwell',
+    source: 'John Maxwell'
   },
   {
     quote: 'Do, or do not. There is no “try”.',
     source: 'Master Yoda',
     citation: 'Star Wars: The Empire Strikes Back',
-    year: 1980,
+    year: 1980
   },
   {
     quote: 'Oh yes, the past can hurt. But you can either run from it, or learn from it.',
     source: 'Rafiki',
     citation: 'The Lion King',
-    year: 1994,
+    year: 1994
   },
   {
     quote: 'Failure is simply the opportunity to begin again, this time more intelligently.',
     source: 'Henry Ford',
     citation: 'BrainyQuote',
-    tags: 'motivational',
+    tags: 'motivational'
   },
   {
     quote: 'I’ve failed over and over and over again in my life. And that is why I succeed.',
-    source: 'Michael Jordan',
+    source: 'Michael Jordan'
   },
   {
     quote: 'Don’t let your victories go to your head, or your failures go to your heart.',
-    source: 'Anonymous',
+    source: 'Anonymous'
   },
   {
     quote: 'Don’t wish it were easier; wish you were better.',
-    source: 'Jim Rohn',
+    source: 'Jim Rohn'
   }
 ];
 
@@ -60,10 +60,10 @@ printQuote(); //Calling `printQuote` function earlier so that a random quote wil
  * The `getRandomQuote` function will produce a random number, then return that random number as an object from the quotes array.
 ***/
 
-function getRandomQuote (arr) {
+function getRandomQuote () {
 
-  let random = arr[Math.floor(Math.random() * arr.length)]; //Random number generator
-  return random;
+  let quote = quotes[Math.floor(Math.random() * quotes.length)]; //Random number generator
+  return quote;
 
 }
 
@@ -100,19 +100,19 @@ function printQuote() {
       </p>
     `;
   } 
-  
+
+  random_bg_color();//Random background color function for every random quote.
+
   return document.getElementById('quote-box').innerHTML = html; //returns the printed html
-  
-  function random_bg_color() { //Random background color for every random quote.
-    var x = Math.floor(Math.random() * 256);
-    var y = Math.floor(Math.random() * 256);
-    var z = Math.floor(Math.random() * 256);
-    var bgColor = "rgb(" + x + "," + y + "," + z + ")";
-    document.body.style.background = bgColor;
-  }
-  random_bg_color();
-  // Source: https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
 }
+
+function random_bg_color() { // Source: https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
+  var x = Math.floor(Math.random() * 256);
+  var y = Math.floor(Math.random() * 256);
+  var z = Math.floor(Math.random() * 256);
+  var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+  document.body.style.background = bgColor;
+} 
 
 setInterval(printQuote, 20000); //Shows a new quote every 20 seconds
 
