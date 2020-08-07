@@ -108,7 +108,10 @@ function printQuote() {
   //Random background color function pulled from https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
   
   return document.getElementById('quote-box').innerHTML = html; //returns the printed html
+
 }
+
+setInterval(printQuote, 30000); //Shows a new quote every 30 seconds
 
 /***
  * click event listener for the print quote button
