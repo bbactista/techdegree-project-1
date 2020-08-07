@@ -96,6 +96,17 @@ function printQuote() {
       <p class="source">${randomQuote.source}</p>
     `;
   }
+  
+  function random_bg_color() { //Random background color for every random quote.
+    var x = Math.floor(Math.random() * 256);
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+    var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+    document.body.style.background = bgColor;
+  }
+  random_bg_color();
+  //Random background color function pulled from https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
+  
   return document.getElementById('quote-box').innerHTML = html; //returns the printed html
 }
 
