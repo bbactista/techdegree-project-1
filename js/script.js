@@ -77,35 +77,31 @@ function printQuote() {
 
   let html = '';
 
+  html += ` 
+    <p class="quote">${randomQuote.quote}</p>
+    <p class="source">${randomQuote.source}
+  `; //Displays quote and source by default
+  
   if (randomQuote.year) { //If random object includes the year, then it will display everything.
     html += `
-      <p class="quote">${randomQuote.quote}</p>
-      <p class="source">${randomQuote.source}
         <span class="citation">${randomQuote.citation}</span>
         <span class="year">${randomQuote.year}</span>
       </p>
     `;
-  } else if (randomQuote.tags) {
+  } else if (randomQuote.tags) { //If the random object includes tags, this will display it.
     html += `
-      <p class="quote">${randomQuote.quote}</p>
-      <p class="source">${randomQuote.source}
         <span class="citation">${randomQuote.citation}</span>
         <span class="tags"> Tags: ${randomQuote.tags}</span>
       </p>
     `;
   } else if (randomQuote.citation) { //If random object just includes the citation w/ no year, then it will display everything minus the year.
     html += `
-      <p class="quote">${randomQuote.quote}</p>
-      <p class="source">${randomQuote.source}
         <span class="citation">${randomQuote.citation}</span>
       </p>
     `;
-  } else { //If there's no citation or year available, then it will only display quote and source
-    html += `
-      <p class="quote">${randomQuote.quote}</p>
-      <p class="source">${randomQuote.source}</p>
-    `;
-  }
+  } 
+  
+  return document.getElementById('quote-box').innerHTML = html; //returns the printed html
   
   function random_bg_color() { //Random background color for every random quote.
     var x = Math.floor(Math.random() * 256);
@@ -116,9 +112,6 @@ function printQuote() {
   }
   random_bg_color();
   //Random background color function pulled from https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
-  
-  return document.getElementById('quote-box').innerHTML = html; //returns the printed html
-
 }
 
 setInterval(printQuote, 20000); //Shows a new quote every 20 seconds
