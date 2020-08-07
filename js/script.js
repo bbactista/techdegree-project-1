@@ -114,7 +114,7 @@ function random_bg_color() { // Source: https://www.w3resource.com/javascript-ex
   document.body.style.background = bgColor;
 } 
 
-setInterval(printQuote, 20000); //Shows a new quote every 20 seconds
+setInterval(printQuote, 20000); //Shows a new quote and background color every 20 seconds.
 
 /***
  * click event listener for the print quote button
