@@ -16,6 +16,7 @@ const quotes = [
     quote: 'Try not to become a man of success, but rather try to become a man of value.',
     source: 'Albert Einstein',
     citation: 'Goalcast',
+    tags: 'motivational',
   },
   {
     quote: 'Successful and unsuccessful people do not vary greatly in their abilities. They vary in their desires to reach their potential.',
@@ -37,6 +38,7 @@ const quotes = [
     quote: 'Failure is simply the opportunity to begin again, this time more intelligently.',
     source: 'Henry Ford',
     citation: 'BrainyQuote',
+    tags: 'motivational',
   },
   {
     quote: 'I’ve failed over and over and over again in my life. And that is why I succeed.',
@@ -83,6 +85,14 @@ function printQuote() {
         <span class="year">${randomQuote.year}</span>
       </p>
     `;
+  } else if (randomQuote.tags) {
+    html += `
+      <p class="quote">${randomQuote.quote}</p>
+      <p class="source">${randomQuote.source}
+        <span class="citation">${randomQuote.citation}</span>
+        <span class="tags"> Tags: ${randomQuote.tags}</span>
+      </p>
+    `;
   } else if (randomQuote.citation) { //If random object just includes the citation w/ no year, then it will display everything minus the year.
     html += `
       <p class="quote">${randomQuote.quote}</p>
@@ -111,7 +121,7 @@ function printQuote() {
 
 }
 
-setInterval(printQuote, 30000); //Shows a new quote every 30 seconds
+setInterval(printQuote, 20000); //Shows a new quote every 20 seconds
 
 /***
  * click event listener for the print quote button
