@@ -25,13 +25,13 @@ const quotes = [
     quote: 'Do, or do not. There is no “try”.',
     source: 'Master Yoda',
     citation: 'Star Wars: The Empire Strikes Back',
-    year: '1980',
+    year: 1980,
   },
   {
     quote: 'Oh yes, the past can hurt. But you can either run from it, or learn from it.',
     source: 'Rafiki',
     citation: 'The Lion King',
-    year: '1994',
+    year: 1994,
   },
   {
     quote: 'Failure is simply the opportunity to begin again, this time more intelligently.',
@@ -59,7 +59,6 @@ const quotes = [
 function getRandomQuote (arr) {
 
   let random = arr[Math.floor(Math.random() * arr.length)];
-
   return random;
 
 }
@@ -74,33 +73,29 @@ function printQuote() {
 
   let html = '';
 
-  if (randomQuote.citation) {
+  if (randomQuote.year) {
+    html += `
+      <p class="quote">${randomQuote.quote}</p>
+      <p class="source">${randomQuote.source}
+        <span class="citation">${randomQuote.citation}</span>
+        <span class="year">${randomQuote.year}</span>
+      </p>
+    `;
+  } else if (randomQuote.citation) {
     html += `
       <p class="quote">${randomQuote.quote}</p>
       <p class="source">${randomQuote.source}
         <span class="citation">${randomQuote.citation}</span>
       </p>
     `;
-  } else if (randomQuote.year) {
-    html += `
-      <p class="quote">${randomQuote.quote}</p>
-      <p class="source">${randomQuote.source}
-        <span class="citation">${randomQuote.citation}
-        <span class="year">${randomQuote.year}</span>
-      </p>
-    `;
   } else {
     html += `
       <p class="quote">${randomQuote.quote}</p>
-      <p class="source">${randomQuote.source}
+      <p class="source">${randomQuote.source}</p>
     `;
   }
-
-  return html;
-
+  return document.getElementById('quote-box').innerHTML = html; 
 }
-
-console.log(printQuote());
 
 /***
  * click event listener for the print quote button
