@@ -50,8 +50,12 @@ printQuote(); //Calling `printQuote` function earlier so that a random quote wil
 
 function getRandomQuote () {
 
-  let quote = quotes[Math.floor(Math.random() * quotes.length)]; //Random number generator
-  return quote;
+  let i = Math.floor(Math.random() * quotes.length); //Random number generator
+  let quote = quotes[i]; 
+ 
+  if (i !== quotes[i]) {
+    return quote;
+  }
 }
 
 /***
