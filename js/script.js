@@ -40,18 +40,6 @@ const quotes = [
     citation: 'BrainyQuote',
     tags: 'motivational'
   },
-  {
-    quote: 'I’ve failed over and over and over again in my life. And that is why I succeed.',
-    source: 'Michael Jordan'
-  },
-  {
-    quote: 'Don’t let your victories go to your head, or your failures go to your heart.',
-    source: 'Anonymous'
-  },
-  {
-    quote: 'Don’t wish it were easier; wish you were better.',
-    source: 'Jim Rohn'
-  }
 ];
 
 printQuote(); //Calling `printQuote` function earlier so that a random quote will appear when first visiting site or refreshing.
@@ -64,7 +52,6 @@ function getRandomQuote () {
 
   let quote = quotes[Math.floor(Math.random() * quotes.length)]; //Random number generator
   return quote;
-
 }
 
 /***
@@ -73,7 +60,7 @@ function getRandomQuote () {
 
 function printQuote() {
   
-  let randomQuote = getRandomQuote(quotes);
+  let randomQuote = getRandomQuote();
 
   let html = '';
 
@@ -106,13 +93,13 @@ function printQuote() {
   return document.getElementById('quote-box').innerHTML = html; //returns the printed html
 }
 
-function random_bg_color() { // Source: https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
+function random_bg_color() { 
   var x = Math.floor(Math.random() * 256);
   var y = Math.floor(Math.random() * 256);
   var z = Math.floor(Math.random() * 256);
   var bgColor = "rgb(" + x + "," + y + "," + z + ")";
   document.body.style.background = bgColor;
-} 
+} // Source: https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
 
 setInterval(printQuote, 20000); //Shows a new quote and background color every 20 seconds.
 
